@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'devise'
+gem 'faker', '~> 1.7', '>= 1.7.3'
 
 group :development, :test do
   gem 'byebug'
