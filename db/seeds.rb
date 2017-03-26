@@ -25,7 +25,7 @@ require 'faker'
    )
  end
 
- items = Item.all
+ wiki = Wiki.all
 
  puts "Seed finished"
  puts "#{users.count} users created"

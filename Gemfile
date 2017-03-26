@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'devise'
 gem 'faker', '~> 1.7', '>= 1.7.3'
+gem 'pundit', '~> 1.1'
 
 group :development, :test do
   gem 'byebug'
