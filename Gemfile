@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
-gem 'devise'
+gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'pundit', '~> 1.1'
 

@@ -3,10 +3,12 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize @wiki
     @wikis = Wiki.all
   end
 
   def show
+    authorize @wiki
   end
 
   def new
@@ -16,6 +18,7 @@ class WikisController < ApplicationController
 
 
   def edit
+    authorize @wiki
   end
 
   def create
@@ -34,6 +37,7 @@ class WikisController < ApplicationController
   end
 
   def update
+    authorize @wiki
     respond_to do |format|
       if @wiki.update(wiki_params)
         format.html { redirect_to @wiki, notice: 'Wiki was successfully updated.' }
