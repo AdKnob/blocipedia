@@ -3,7 +3,6 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize @wiki
     @wikis = Wiki.all
   end
 
@@ -22,7 +21,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new(wiki_params)
+    @wiki = current_user.wikis.new(wiki_params)
     authorize @wiki
 
     respond_to do |format|
@@ -64,6 +63,6 @@ class WikisController < ApplicationController
     end
 
     def wiki_params
-      params.require(:wiki).permit(:title, :body, :private, :user_id)
+      params.require(:wiki).permit(:title, :body, :private)
     end
 end

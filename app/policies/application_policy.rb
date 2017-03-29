@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    @user
+    true
   end
 
   def show?
@@ -15,23 +15,23 @@ class ApplicationPolicy
   end
 
   def create?
-    @user
+    user.present?
   end
 
   def new?
-    @user
+    create?
   end
 
   def update?
-    @user && @user.profile == @user
+    user && (record.user == user || user.admin?)
   end
 
   def edit?
-    u@user && @user.profile == @user
+    update?
   end
 
   def destroy?
-    @user && @user.profile == @user
+    update?
   end
 
   def scope

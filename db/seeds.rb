@@ -5,13 +5,13 @@ require 'faker'
    User.create!(
 
     email: Faker::Internet.email,
-    encrypted_password: "password"
+    password: "password"
 
    )
 
  end
 
- user = User.all
+ users = User.all
 
  50.times do
 
@@ -19,13 +19,13 @@ require 'faker'
 
    title: Faker::RockBand.name,
    body: Faker::Lorem.sentence,
-   private: Faker::Boolean.boolean
+   private: Faker::Boolean.boolean,
    user: users.sample
 
    )
  end
 
- wiki = Wiki.all
+ wikis = Wiki.all
 
  puts "Seed finished"
  puts "#{users.count} users created"
