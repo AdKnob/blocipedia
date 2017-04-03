@@ -1,12 +1,6 @@
 class ChargesController < ApplicationController
 
-  def new
-   @stripe_btn_data = {
-     key: "#{ Rails.configuration.stripe[:publishable_key] }",
-     description: "BigMoney Membership - #{current_user.name}",
-     amount: Amount.default
-   }
-  end
+  Stripe.api_key = ENV['SECRET_KEY']
 
   def create
    # Creates a Stripe Customer object, for associating
@@ -35,5 +29,15 @@ class ChargesController < ApplicationController
    rescue Stripe::CardError => e
      flash[:alert] = e.message
      redirect_to new_charge_path
- end
+     flash[:notice] = "Please try again"
+   end
+
+   def new
+   @stripe_btn_data = {
+     key: "#{ Rails.configuration.stripe[:publishable_key] }",
+     description: "BigMoney Membership - #{current_user.name}",
+     amount: Amount.default
+   }
+  end
+
 end
