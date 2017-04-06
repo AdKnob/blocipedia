@@ -15,6 +15,7 @@ gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'pundit', '~> 1.1'
 gem 'stripe', '~> 2.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'redcarpet', '~> 3.4'
 
 group :development, :test do
   gem 'byebug'
