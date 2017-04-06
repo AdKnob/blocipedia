@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wikis = Wiki.all
+    @wikis = policy_scope(Wiki)
   end
 
   def show
